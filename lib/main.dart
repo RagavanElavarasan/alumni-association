@@ -1,13 +1,15 @@
+import 'package:alumni_association/discussion.dart';
+import 'package:alumni_association/donation.dart';
+import 'package:alumni_association/feedback.dart';
 import 'package:alumni_association/home.dart';
 import 'package:alumni_association/messages.dart';
 import 'package:alumni_association/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:get/get.dart';
-void main() => runApp(const MaterialApp(
-      home: MyApp(),
-    ));
-
+void main() {
+  runApp(MyApp());
+}
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -21,13 +23,14 @@ class _MyAppState extends State<MyApp> {
     HomePage(),
     MessagesPage(),
     ProfilePage(),
-    const Center(child: Text('Discussion')),
-    const Center(child: Text('Donation')),
-    const Center(child: Text('Feedback')),
+    DiscussionPage(),
+    DonationPage(),
+    FeedbackPage()
   ];
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
     home:Scaffold(
       body: tabs[i],
       bottomNavigationBar: BottomNavigationBar(
