@@ -10,34 +10,34 @@ class MessagesPage extends StatefulWidget {
 class _MessagesPageState extends State<MessagesPage> {
   final List<Contact> contacts = [
     Contact(
-      name: 'Contact 1',
-      imageUrl: 'https://picsum.photos/200/300',
-      lastMessage: 'Hi, how are you?',
-      lastMessageTime: '10:49 PM',
+      name: 'am',
+      imageUrl: 'https://randomuser.me/api/portraits/men/11.jpg',
+      lastMessage: 'Are we meeting tomorrow?',
+      lastMessageTime: '9:30 AM',
     ),
     Contact(
-      name: 'Contact 2',
-      imageUrl: 'https://picsum.photos/200/300',
-      lastMessage: 'Hey, how\'s it going?',
-      lastMessageTime: '10:49 PM',
+      name: 'Smith',
+      imageUrl: 'https://randomuser.me/api/portraits/women/12.jpg',
+      lastMessage: 'Just finished the project!',
+      lastMessageTime: '8:45 AM',
     ),
     Contact(
-      name: 'Contact 3',
-      imageUrl: 'https://picsum.photos/200/300',
-      lastMessage: 'Hey, how\'s it going?',
-      lastMessageTime: '10:49 PM',
+      name: 'Johnson',
+      imageUrl: 'https://randomuser.me/api/portraits/men/13.jpg',
+      lastMessage: 'Can you send the files?',
+      lastMessageTime: '7:10 AM',
     ),
     Contact(
-      name: 'Contact 4',
-      imageUrl: 'https://picsum.photos/200/300',
-      lastMessage: 'Hey, how\'s it going?',
-      lastMessageTime: '10:49 PM',
+      name: 'Davis',
+      imageUrl: 'https://randomuser.me/api/portraits/women/14.jpg',
+      lastMessage: 'Let\'s catch up later.',
+      lastMessageTime: '6:20 AM',
     ),
     Contact(
-      name: 'Contact 5',
-      imageUrl: 'https://picsum.photos/200/300',
-      lastMessage: 'Hey, how\'s it going?',
-      lastMessageTime: '10:49 PM',
+      name: 'Chris',
+      imageUrl: 'https://randomuser.me/api/portraits/men/15.jpg',
+      lastMessage: 'I\'ll be there in 10 mins.',
+      lastMessageTime: 'Yesterday',
     ),
   ];
 
@@ -49,7 +49,7 @@ class _MessagesPageState extends State<MessagesPage> {
           'Heritage Hub',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: const Color.fromARGB(255, 162, 115, 245),
+        backgroundColor: Color(0xFF6993FF),
       ),
       body: Column(
         children: [
@@ -62,7 +62,8 @@ class _MessagesPageState extends State<MessagesPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ChatScreen(contact: contacts[index]),
+                        builder: (context) =>
+                            ChatScreen(contact: contacts[index]),
                       ),
                     );
                   },
@@ -71,7 +72,6 @@ class _MessagesPageState extends State<MessagesPage> {
               },
             ),
           ),
-          
         ],
       ),
     );
@@ -103,18 +103,18 @@ class ContactItem extends StatelessWidget {
       leading: CircleAvatar(
         backgroundImage: NetworkImage(contact.imageUrl),
       ),
-      title: Text(contact.name),
+      title: Text(contact.name,style: const TextStyle(fontSize: 18),),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             contact.lastMessage,
-            style: const TextStyle(fontSize: 14),
+            style: const TextStyle(fontSize: 16),
           ),
           const SizedBox(height: 4),
           Text(
             contact.lastMessageTime,
-            style: const TextStyle(fontSize: 12, color: Colors.grey),
+            style: const TextStyle(fontSize: 15, color: Colors.grey),
           ),
         ],
       ),
@@ -142,7 +142,7 @@ class ChatScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 // Add logic to display messages from both user and contact
                 return MessageBubble(
-                  text: 'Message ${index + 1}',
+                  text: 'Message ${index + 1} from ${contact.name}',
                   isMe: index % 2 == 0,
                 );
               },
@@ -193,8 +193,10 @@ class MessageBubble extends StatelessWidget {
         decoration: BoxDecoration(
           color: isMe ? Colors.blue : Colors.grey[300],
           borderRadius: BorderRadius.only(
-            topLeft: isMe ? const Radius.circular(25.0) : const Radius.circular(0),
-            topRight: isMe ? const Radius.circular(0) : const Radius.circular(25.0),
+            topLeft:
+                isMe ? const Radius.circular(25.0) : const Radius.circular(0),
+            topRight:
+                isMe ? const Radius.circular(0) : const Radius.circular(25.0),
             bottomLeft: const Radius.circular(25.0),
             bottomRight: const Radius.circular(25.0),
           ),

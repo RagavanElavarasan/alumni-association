@@ -16,7 +16,7 @@ class _DonationPageState extends State<DonationPage> {
           "Heritage Hub",
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: const Color.fromARGB(255, 162, 115, 245),
+        backgroundColor: Color(0xFF6993FF),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -114,13 +114,28 @@ class _DonationPageState extends State<DonationPage> {
             ),
             const SizedBox(height: 16),
             const Text(
-              "Thank you for considering supporting this exciting project. Together, we can make a significant "
-              "impact on urban transportation and smart city solutions.",
-            ),
-            const SizedBox(height: 16),
-            const Text(
               "For more information about the project or to discuss potential partnerships, please reach out "
               "to us at studentinnovation@ksrct.net",
+            ),
+            const SizedBox(height: 16),
+            // Add the image here in a Row to position it at the bottom left
+            Row(
+              children: [
+                Container(
+                  height: 100,
+                  width: 100,
+                  child: Image.asset(
+                    'images/qrcode.png'
+                  ),
+                ),
+                const SizedBox(width: 16),
+                const Expanded(
+                  child: Text(
+                    "Scan the QR code to view more details about the project.",
+                    style: TextStyle(fontSize: 14),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

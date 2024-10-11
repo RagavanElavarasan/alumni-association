@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -12,129 +13,140 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Heritage Hub",
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Color.fromARGB(255, 162, 115, 245),
+        backgroundColor: const Color(0xFF6993FF),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Text(
-                    "Profile",
-                    style: TextStyle(fontSize: 25),
-                  ),
-                ],
+              const Text(
+                "User Profile",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Center(
                 child: Stack(
                   children: [
-                    CircleAvatar(
-                      radius: 60,
-                      //backgroundImage: AssetImage('assets/icon/profile.png'),
-                    ),
+                    const CircleAvatar(
+                        radius: 60,
+                        backgroundColor: Color.fromARGB(255, 228, 226, 226)),
                     Positioned(
                       bottom: 0,
                       right: 0,
                       child: Container(
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
+                        padding: const EdgeInsets.all(5),
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Color.fromARGB(255, 162, 115, 245),
+                          color: Color(0xFF6993FF),
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.edit,
                           color: Colors.white,
                           size: 16,
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 60),
-              // First row: Name and Role
+              const SizedBox(height: 10),
+              const Center(
+                child: Text(
+                  'Nelson Mandela',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 30),
+              // Profile Details (Name, Role, Email, etc.)
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(child: _buildProfileDetail("Name", "Kanishka S")),
-                  SizedBox(width: 20),
+                  Expanded(
+                      child: _buildProfileDetail("Name", "Nelson Mandela")),
+                  const SizedBox(width: 20),
+                  Expanded(
+                      child: _buildProfileDetail(
+                          "Email", "nelsonmandela@gmail.com")),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
                   Expanded(child: _buildProfileDetail("Role", "Alumni")),
-                ],
-              ),
-              SizedBox(height: 20),
-              // Second row: Email
-              _buildProfileDetail("Email", "kanishka@gmail.com"),
-              SizedBox(height: 20),
-              // Third row: Degree and Branch (Branch aligned with Role and Working place)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(child: _buildProfileDetail("Degree", "B.Tech")),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Expanded(
-                      child: _buildProfileDetail(
-                          "Branch", "Information Technology")),
+                      child: _buildProfileDetail("Yearsofexperience", "5")),
                 ],
               ),
-              SizedBox(height: 20),
-              // Fourth row: Years of Experience and Working place (Working place aligned with Branch and Role)
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                      child: _buildProfileDetail(
-                          "Years of Experience", "5 years")),
-                  SizedBox(width: 20),
+                      child: _buildProfileDetail("Workingcompany", "Infosys")),
+                  const SizedBox(width: 20),
                   Expanded(
-                      child: _buildProfileDetail("Working place", "Cognizant")),
+                      child: _buildProfileDetail(
+                          "Workingdomain", "App developer")),
                 ],
               ),
-              SizedBox(height: 80),
+              const SizedBox(height: 20),
+              _buildProfileDetail("Degree", "IT"),
+              const SizedBox(height: 20),
+              _buildProfileDetail("Success Story", "I’m Jordan, a tech enthusiast with a background in Computer Science. Currently, I specialize in mobile app development and enjoy solving complex problems. My proudest achievement was leading a successful app launch that boosted user engagement. Outside of work, I stay current with tech trends and contribute to open-source projects. My future goals include exploring emerging technologies like AI and blockchain."),
+              const SizedBox(height: 20),
+
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 162, 115, 245),
-                          padding: EdgeInsets.symmetric(vertical: 15),
-                          textStyle: TextStyle(
-                              fontSize: 17.98,
-                              fontFamily: 'Inder',
-                              fontWeight: FontWeight.bold),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
+                      child: Container(
+                        height: 50,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF6993FF),
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            textStyle: const TextStyle(
+                                fontSize: 17.98,
+                                fontFamily: 'Inder',
+                                fontWeight: FontWeight.bold),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
                           ),
-                        ),
-                        onPressed: () {
-                          // Add your button logic here
-                        },
-                        child: Text(
-                          'Edit',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 17.98,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "Inder"),
+                          onPressed: () {
+                            // Add your button logic here
+                            //Get.to(EditProfilePage);
+                          },
+                          child: const Text(
+                            'Edit',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17.98,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Inder"),
+                          ),
                         ),
                       ),
                     ),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Expanded(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.red,
-                          padding: EdgeInsets.symmetric(vertical: 15),
-                          textStyle: TextStyle(
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          textStyle: const TextStyle(
                               fontSize: 17.98,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Inder'),
@@ -145,8 +157,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         onPressed: () {
                           // Add your button logic here
                         },
-                        child: Text(
-                          'Log out',
+                        child: const Text(
+                          'Logout',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 17.98,
@@ -171,12 +183,12 @@ class _ProfilePageState extends State<ProfilePage> {
       children: [
         Text(
           label,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         Text(
           value,
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 15),
         ),
       ],
     );
